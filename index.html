@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumora Photography Studio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: "#3B2923",
+                        brown: "#6B4F45",
+                        cream: "#F7F2EC",
+                        sand: "#DCCDC0",
+                        gold: "#A47B55"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .sans {
+            font-family: Arial, sans-serif;
+        }
+
+        .hero {
+            background:
+                linear-gradient(rgba(35, 25, 20, 0.45), rgba(35, 25, 20, 0.55)),
+                url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .portfolio-item {
+            transition: 0.3s ease;
+        }
+
+        .portfolio-item.hidden-item {
+            display: none;
+        }
+
+        .portfolio-item img {
+            transition: 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .service-card,
+        .package-card {
+            transition: 0.3s ease;
+        }
+
+        .service-card:hover,
+        .package-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg-cream text-coffee">
+
+    <!-- NAVBAR -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur shadow-sm">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#home" class="text-2xl font-bold tracking-widest">
+                LUMORA
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 sans text-sm">
+                <a href="#home" class="hover:text-gold">Home</a>
+                <a href="#about" class="hover:text-gold">About</a>
+                <a href="#services" class="hover:text-gold">Services</a>
+                <a href="#portfolio" class="hover:text-gold">Portfolio</a>
+                <a href="#packages" class="hover:text-gold">Packages</a>
+                <a href="#contact" class="hover:text-gold">Contact</a>
+            </div>
+
+            <a href="#contact"
+               class="hidden md:block bg-coffee text-white px-5 py-3 rounded-full sans text-sm hover:bg-brown transition">
+                Book a Session
+            </a>
+
+            <button id="menuBtn" class="md:hidden text-2xl">
+                ☰
+            </button>
+        </nav>
+
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white px-6 pb-5">
+            <a href="#home" class="block py-2 sans">Home</a>
+            <a href="#about" class="block py-2 sans">About</a>
+            <a href="#services" class="block py-2 sans">Services</a>
+            <a href="#portfolio" class="block py-2 sans">Portfolio</a>
+            <a href="#packages" class="block py-2 sans">Packages</a>
+            <a href="#contact" class="block py-2 sans">Contact</a>
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section id="home" class="hero min-h-screen flex items-center text-white pt-20">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            <div class="max-w-3xl">
+                <p class="uppercase tracking-[5px] text-sm mb-5">
+                    Photography & Visual Stories
+                </p>
+
+                <h1 class="text-5xl md:text-7xl leading-tight mb-6">
+                    Stories Worth
+                    <span class="italic">Remembering.</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-white/90 max-w-2xl mb-8">
+                    We capture genuine emotions, beautiful details and unforgettable
+                    moments through timeless photography.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#portfolio"
+                       class="bg-white text-coffee px-7 py-3 rounded-full sans font-semibold hover:bg-sand transition">
+                        Explore Portfolio
+                    </a>
+
+                    <a href="#contact"
+                       class="border border-white px-7 py-3 rounded-full sans font-semibold hover:bg-white hover:text-coffee transition">
+                        Book a Session
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-14 items-center">
+
+                <div>
+                    <img
+                        src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1000&q=80"
+                        class="w-full h-[550px] object-cover rounded-2xl"
+                        alt="Photographer">
+                </div>
+
+                <div>
+                    <p class="uppercase tracking-[4px] text-gold sans text-sm mb-4">
+                        About Lumora
+                    </p>
+
+                    <h2 class="text-4xl md:text-5xl mb-6">
+                        We don't just take pictures.
+                        <span class="italic">We preserve moments.</span>
+                    </h2>
+
+                    <p class="sans text-gray-600 leading-7 mb-5">
+                        Lumora Photography Studio is a Chennai-based creative studio
+                        specializing in weddings, portraits, fashion, events and
+                        lifestyle photography.
+                    </p>
+
+                    <p class="sans text-gray-600 leading-7 mb-8">
+                        Our approach is simple: observe the little moments, capture
+                        honest emotions and create photographs that still feel special
+                        years later.
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-5 border-t border-sand pt-7">
+                        <div>
+                            <h3 class="text-3xl font-bold">8+</h3>
+                            <p class="sans text-sm text-gray-500">Years</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-3xl font-bold">500+</h3>
+                            <p class="sans text-sm text-gray-500">Sessions</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-3xl font-bold">35+</h3>
+                            <p class="sans text-sm text-gray-500">Awards</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <p class="uppercase tracking-[4px] text-gold sans text-sm mb-4">
+                    What We Do
+                </p>
+
+                <h2 class="text-4xl md:text-5xl mb-5">
+                    Photography for every chapter
+                </h2>
+
+                <p class="sans text-gray-600">
+                    From intimate portraits to large celebrations, we create images
+                    that tell your story naturally.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="service-card bg-cream p-8 rounded-2xl">
+                    <div class="text-3xl mb-5">01</div>
+                    <h3 class="text-2xl mb-3">Wedding Photography</h3>
+                    <p class="sans text-gray-600 leading-6">
+                        Emotional, candid and elegant photography for your wedding day.
+                    </p>
+                </div>
+
+                <div class="service-card bg-cream p-8 rounded-2xl">
+                    <div class="text-3xl mb-5">02</div>
+                    <h3 class="text-2xl mb-3">Portrait Photography</h3>
+                    <p class="sans text-gray-600 leading-6">
+                        Natural portraits for personal branding, families and special occasions.
+                    </p>
+                </div>
+
+                <div class="service-card bg-cream p-8 rounded-2xl">
+                    <div class="text-3xl mb-5">03</div>
+                    <h3 class="text-2xl mb-3">Fashion Photography</h3>
+                    <p class="sans text-gray-600 leading-6">
+                        Editorial-style photography for models, designers and creative brands.
+                    </p>
+                </div>
+
+                <div class="service-card bg-cream p-8 rounded-2xl">
+                    <div class="text-3xl mb-5">04</div>
+                    <h3 class="text-2xl mb-3">Product Photography</h3>
+                    <p class="sans text-gray-600 leading-6">
+                        Clean, detailed visuals designed to showcase products beautifully.
+                    </p>
+                </div>
+
+                <div class="service-card bg-cream p-8 rounded-2xl">
+                    <div class="text-3xl mb-5">05</div>
+                    <h3 class="text-2xl mb-3">Family & Events</h3>
+                    <p class="sans text-gray-600 leading-6">
+                        Authentic photographs of birthdays, celebrations and family gatherings.
+                    </p>
+                </div>
+
+                <div class="service-card bg-cream p-8 rounded-2xl">
+                    <div class="text-3xl mb-5">06</div>
+                    <h3 class="text-2xl mb-3">Pre-Wedding</h3>
+                    <p class="sans text-gray-600 leading-6">
+                        Romantic outdoor sessions designed around your personality and story.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+                <div>
+                    <p class="uppercase tracking-[4px] text-gold sans text-sm mb-4">
+                        Selected Work
+                    </p>
+
+                    <h2 class="text-4xl md:text-5xl">
+                        Moments through our lens
+                    </h2>
+                </div>
+
+                <div class="flex flex-wrap gap-2 sans">
+                    <button class="filter-btn bg-coffee text-white px-5 py-2 rounded-full" data-filter="all">
+                        All
+                    </button>
+                    <button class="filter-btn bg-white px-5 py-2 rounded-full" data-filter="wedding">
+                        Wedding
+                    </button>
+                    <button class="filter-btn bg-white px-5 py-2 rounded-full" data-filter="portrait">
+                        Portrait
+                    </button>
+                    <button class="filter-btn bg-white px-5 py-2 rounded-full" data-filter="fashion">
+                        Fashion
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <div class="portfolio-item wedding overflow-hidden rounded-2xl">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80"
+                         class="w-full h-96 object-cover" alt="Wedding">
+                </div>
+
+                <div class="portfolio-item portrait overflow-hidden rounded-2xl">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80"
+                         class="w-full h-96 object-cover" alt="Portrait">
+                </div>
+
+                <div class="portfolio-item fashion overflow-hidden rounded-2xl">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80"
+                         class="w-full h-96 object-cover" alt="Fashion">
+                </div>
+
+                <div class="portfolio-item wedding overflow-hidden rounded-2xl">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80"
+                         class="w-full h-96 object-cover" alt="Wedding couple">
+                </div>
+
+                <div class="portfolio-item portrait overflow-hidden rounded-2xl">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+                         class="w-full h-96 object-cover" alt="Portrait">
+                </div>
+
+                <div class="portfolio-item fashion overflow-hidden rounded-2xl">
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80"
+                         class="w-full h-96 object-cover" alt="Fashion">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PACKAGES -->
+    <section id="packages" class="py-24 bg-coffee text-white">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <p class="uppercase tracking-[4px] text-sand sans text-sm mb-4">
+                    Packages
+                </p>
+
+                <h2 class="text-4xl md:text-5xl mb-5">
+                    Choose your experience
+                </h2>
+
+                <p class="sans text-white/70">
+                    Flexible packages designed for different stories and occasions.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <div class="package-card border border-white/20 rounded-2xl p-8">
+                    <p class="sans text-sm uppercase tracking-widest text-sand">
+                        Essential
+                    </p>
+
+                    <h3 class="text-4xl mt-4 mb-2">₹15,000</h3>
+                    <p class="sans text-white/60 mb-7">Perfect for intimate sessions</p>
+
+                    <ul class="space-y-4 sans text-sm text-white/80 mb-8">
+                        <li>✓ 2 Hour Session</li>
+                        <li>✓ 1 Photographer</li>
+                        <li>✓ 100 Edited Photos</li>
+                        <li>✓ Online Gallery</li>
+                        <li>✓ 7 Day Delivery</li>
+                    </ul>
+
+                    <button onclick="selectPackage('Essential')"
+                            class="w-full border border-white/30 py-3 rounded-full hover:bg-white hover:text-coffee transition">
+                        Select Package
+                    </button>
+                </div>
+
+                <div class="package-card bg-white text-coffee rounded-2xl p-8 md:-translate-y-4">
+                    <p class="sans text-sm uppercase tracking-widest text-gold">
+                        Most Popular
+                    </p>
+
+                    <h3 class="text-4xl mt-4 mb-2">₹28,000</h3>
+                    <p class="sans text-gray-500 mb-7">Ideal for weddings & events</p>
+
+                    <ul class="space-y-4 sans text-sm text-gray-600 mb-8">
+                        <li>✓ 6 Hour Coverage</li>
+                        <li>✓ 2 Photographers</li>
+                        <li>✓ 350 Edited Photos</li>
+                        <li>✓ Premium Online Gallery</li>
+                        <li>✓ 2 Photo Albums</li>
+                    </ul>
+
+                    <button onclick="selectPackage('Signature')"
+                            class="w-full bg-coffee text-white py-3 rounded-full hover:bg-brown transition">
+                        Select Package
+                    </button>
+                </div>
+
+                <div class="package-card border border-white/20 rounded-2xl p-8">
+                    <p class="sans text-sm uppercase tracking-widest text-sand">
+                        Premium
+                    </p>
+
+                    <h3 class="text-4xl mt-4 mb-2">₹45,000</h3>
+                    <p class="sans text-white/60 mb-7">Complete photography experience</p>
+
+                    <ul class="space-y-4 sans text-sm text-white/80 mb-8">
+                        <li>✓ Full Day Coverage</li>
+                        <li>✓ 2 Photographers + Assistant</li>
+                        <li>✓ 600+ Edited Photos</li>
+                        <li>✓ Premium Photo Album</li>
+                        <li>✓ Cinematic Highlight Film</li>
+                    </ul>
+
+                    <button onclick="selectPackage('Premium')"
+                            class="w-full border border-white/30 py-3 rounded-full hover:bg-white hover:text-coffee transition">
+                        Select Package
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PHOTOGRAPHER -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="grid md:grid-cols-2 gap-14 items-center">
+
+                <div>
+                    <p class="uppercase tracking-[4px] text-gold sans text-sm mb-4">
+                        Behind the Lens
+                    </p>
+
+                    <h2 class="text-4xl md:text-5xl mb-6">
+                        Meet Arjun Menon
+                    </h2>
+
+                    <p class="sans text-gray-600 leading-7 mb-5">
+                        Founder and lead photographer at Lumora, Arjun has spent
+                        more than eight years documenting weddings, people and
+                        creative stories across South India.
+                    </p>
+
+                    <p class="sans text-gray-600 leading-7 mb-7">
+                        His photography style combines natural light, honest
+                        expressions and carefully composed details.
+                    </p>
+
+                    <div class="flex gap-10 sans text-sm">
+                        <div>
+                            <strong class="text-xl">8+</strong>
+                            <p class="text-gray-500">Years Experience</p>
+                        </div>
+
+                        <div>
+                            <strong class="text-xl">12</strong>
+                            <p class="text-gray-500">Cities Covered</p>
+                        </div>
+
+                        <div>
+                            <strong class="text-xl">35+</strong>
+                            <p class="text-gray-500">Awards</p>
+                        </div>
+                    </div>
+                </div>
+
+                <img
+                    src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=1000&q=80"
+                    class="w-full h-[550px] object-cover rounded-2xl"
+                    alt="Photographer">
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-sand">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-14">
+                <p class="uppercase tracking-[4px] text-gold sans text-sm mb-4">
+                    Client Stories
+                </p>
+
+                <h2 class="text-4xl md:text-5xl">
+                    Loved by our clients
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <div class="bg-white p-8 rounded-2xl">
+                    <p class="text-gold text-xl mb-5">★★★★★</p>
+                    <p class="sans text-gray-600 leading-7 mb-6">
+                        "The team made us feel completely comfortable. Every photo
+                        captured the emotions of our wedding day beautifully."
+                    </p>
+                    <h4 class="font-bold">Priya & Karthik</h4>
+                    <p class="sans text-sm text-gray-500">Chennai Wedding</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl">
+                    <p class="text-gold text-xl mb-5">★★★★★</p>
+                    <p class="sans text-gray-600 leading-7 mb-6">
+                        "The portraits were natural, elegant and exactly what I
+                        wanted for my professional profile."
+                    </p>
+                    <h4 class="font-bold">Meera Shah</h4>
+                    <p class="sans text-sm text-gray-500">Portrait Session</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl">
+                    <p class="text-gold text-xl mb-5">★★★★★</p>
+                    <p class="sans text-gray-600 leading-7 mb-6">
+                        "From planning to delivery, everything was professional.
+                        The final album is something our family will treasure."
+                    </p>
+                    <h4 class="font-bold">Rahul & Ananya</h4>
+                    <p class="sans text-sm text-gray-500">Pre-Wedding Session</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PROCESS -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <p class="uppercase tracking-[4px] text-gold sans text-sm mb-4">
+                    Our Process
+                </p>
+
+                <h2 class="text-4xl md:text-5xl mb-5">
+                    From idea to photograph
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-cream flex items-center justify-center text-xl mb-5">
+                        01
+                    </div>
+                    <h3 class="text-xl mb-3">Consultation</h3>
+                    <p class="sans text-gray-500 text-sm">
+                        We understand your vision, event and photography requirements.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-cream flex items-center justify-center text-xl mb-5">
+                        02
+                    </div>
+                    <h3 class="text-xl mb-3">Planning</h3>
+                    <p class="sans text-gray-500 text-sm">
+                        We plan locations, timelines, concepts and important details.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-cream flex items-center justify-center text-xl mb-5">
+                        03
+                    </div>
+                    <h3 class="text-xl mb-3">Shoot Day</h3>
+                    <p class="sans text-gray-500 text-sm">
+                        Our team captures authentic moments while keeping the experience relaxed.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-cream flex items-center justify-center text-xl mb-5">
+                        04
+                    </div>
+                    <h3 class="text-xl mb-3">Delivery</h3>
+                    <p class="sans text-gray-500 text-sm">
+                        Your carefully edited photographs are delivered through a private gallery.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 bg-coffee text-white">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="grid md:grid-cols-2 gap-14">
+
+                <div>
+                    <p class="uppercase tracking-[4px] text-sand sans text-sm mb-4">
+                        Let's Create
+                    </p>
+
+                    <h2 class="text-4xl md:text-6xl mb-6">
+                        Have a story to tell?
+                    </h2>
+
+                    <p class="sans text-white/70 leading-7 max-w-lg mb-8">
+                        Tell us about your event, idea or photography requirement.
+                        We'll get back to you within one business day.
+                    </p>
+
+                    <div class="space-y-5 sans text-sm text-white/80">
+                        <p>Chennai, Tamil Nadu, India</p>
+                        <p>+91 98765 43210</p>
+                        <p>hello@lumorastudio.com</p>
+                        <p>Mon – Sat: 10:00 AM – 7:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="bg-white text-coffee rounded-2xl p-8">
+
+                    <h3 class="text-2xl mb-6">
+                        Book a Session
+                    </h3>
+
+                    <form id="bookingForm" class="space-y-5">
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Your Name"
+                                required
+                                class="w-full border border-gray-200 rounded-lg px-4 py-3 sans outline-none focus:border-gold">
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Email Address"
+                                required
+                                class="w-full border border-gray-200 rounded-lg px-4 py-3 sans outline-none focus:border-gold">
+                        </div>
+
+                        <input
+                            type="tel"
+                            placeholder="Phone Number"
+                            required
+                            class="w-full border border-gray-200 rounded-lg px-4 py-3 sans outline-none focus:border-gold">
+
+                        <select
+                            id="eventType"
+                            class="w-full border border-gray-200 rounded-lg px-4 py-3 sans outline-none">
+                            <option>Wedding Photography</option>
+                            <option>Portrait Session</option>
+                            <option>Fashion Photography</option>
+                            <option>Product Photography</option>
+                            <option>Family & Events</option>
+                            <option>Pre-Wedding</option>
+                        </select>
+
+                        <input
+                            type="date"
+                            required
+                            class="w-full border border-gray-200 rounded-lg px-4 py-3 sans outline-none focus:border-gold">
+
+                        <textarea
+                            rows="4"
+                            placeholder="Tell us about your photography requirement..."
+                            class="w-full border border-gray-200 rounded-lg px-4 py-3 sans outline-none focus:border-gold"></textarea>
+
+                        <button
+                            type="submit"
+                            class="w-full bg-coffee text-white py-3 rounded-lg sans font-semibold hover:bg-brown transition">
+                            Send Enquiry
+                        </button>
+
+                    </form>
+
+                    <p id="formMessage" class="hidden mt-4 text-green-700 sans text-sm">
+                        Thank you! Your enquiry has been received.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-[#261B17] text-white py-10">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="flex flex-col md:flex-row justify-between gap-6">
+
+                <div>
+                    <h2 class="text-2xl tracking-widest mb-2">
+                        LUMORA
+                    </h2>
+                    <p class="sans text-sm text-white/50">
+                        Stories worth remembering.
+                    </p>
+                </div>
+
+                <div class="flex gap-6 sans text-sm text-white/60">
+                    <a href="#home" class="hover:text-white">Instagram</a>
+                    <a href="#portfolio" class="hover:text-white">Portfolio</a>
+                    <a href="#contact" class="hover:text-white">Contact</a>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 mt-8 pt-6 text-center">
+                <p class="sans text-sm text-white/40">
+                    © 2026 Lumora Photography Studio. All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // Mobile Menu
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("show");
+        });
+
+        document.querySelectorAll("#mobileMenu a").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.remove("show");
+            });
+        });
+
+
+        // Portfolio Filter
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                const filter = button.dataset.filter;
+
+                filterButtons.forEach(btn => {
+                    btn.classList.remove("bg-coffee", "text-white");
+                    btn.classList.add("bg-white");
+                });
+
+                button.classList.remove("bg-white");
+                button.classList.add("bg-coffee", "text-white");
+
+                portfolioItems.forEach(item => {
+
+                    if (filter === "all" || item.classList.contains(filter)) {
+                        item.classList.remove("hidden-item");
+                    } else {
+                        item.classList.add("hidden-item");
+                    }
+
+                });
+
+            });
+
+        });
+
+
+        // Package Selection
+        function selectPackage(packageName) {
+
+            document.getElementById("contact").scrollIntoView({
+                behavior: "smooth"
+            });
+
+            setTimeout(() => {
+
+                const eventType = document.getElementById("eventType");
+
+                if (packageName === "Essential") {
+                    eventType.value = "Portrait Session";
+                }
+
+                if (packageName === "Signature") {
+                    eventType.value = "Wedding Photography";
+                }
+
+                if (packageName === "Premium") {
+                    eventType.value = "Wedding Photography";
+                }
+
+            }, 700);
+        }
+
+
+        // Booking Form
+        const bookingForm = document.getElementById("bookingForm");
+        const formMessage = document.getElementById("formMessage");
+
+        bookingForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+
+            formMessage.textContent =
+                "Thank you, " + name + "! Your enquiry has been received. We'll contact you shortly.";
+
+            formMessage.classList.remove("hidden");
+
+            bookingForm.reset();
+
+        });
+
+    </script>
+
+</body>
+</html>
+
